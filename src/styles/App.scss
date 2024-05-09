@@ -223,6 +223,13 @@ fieldset {
 .card .card__name {
 	font: var(--font-card-title);
 	margin-bottom: 0.2rem;
+	text-align: center;
+	padding-top: 0.5rem;
+}
+
+.card .card__nameProject {
+	font: var(--font-card-title);
+	margin-bottom: 0.2rem;
 }
 
 .card .card__project {

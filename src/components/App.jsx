@@ -1,7 +1,7 @@
 import "../styles/App.scss";
 import companyLogo from "../images/laptop-code-solid.svg";
 import logoSponsor from "../images/adalab.png";
-import { useState } from "react";
+import {useState} from "react";
 
 function App() {
   const [inputData, setInputData] = useState({
@@ -23,9 +23,9 @@ function App() {
     const value = ev.target.value;
 
     //spread operator:
-        //setLoQueSea({...variableQueContieneElObjeto, propiedarACambiar: valor})
+    //setLoQueSea({...variableQueContieneElObjeto, propiedarACambiar: valor})
 
-     setInputData({...inputData, [id]: value})
+    setInputData({...inputData, [id]: value})
 
 
     // if (id === "name") {
@@ -97,7 +97,7 @@ function App() {
               </div>
 
               <div className="card__project">
-                <h3 className="card__name">
+                <h3 className="card__nameProject">
                   {inputData.name || "Elegant Workspace"}
                 </h3>
                 <p className="card__slogan">
@@ -105,8 +105,8 @@ function App() {
                 </p>
                 <h3 className="card__descriptionTitle">Product description</h3>
                 <p className="card__description">
-                {inputData.desc || "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, quos? Itaque, molestias eveniet laudantium adipiscivitae ratione"}
-                  
+                  {inputData.desc || "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, quos? Itaque, molestias eveniet laudantium adipiscivitae ratione"}
+
                 </p>
 
                 <div className="card__technicalInfo">
@@ -116,7 +116,7 @@ function App() {
                     className="icon icon__www"
                     href={inputData.demo} //hacer validación
                     title="Haz click para ver el proyecto online"
-                    target= '_blank'
+                    target='_blank'
                   >
                     Web link
                   </a>
@@ -124,7 +124,7 @@ function App() {
                     className="icon icon__github"
                     href={`https://github.com/${inputData.repo}`} //hacer validación
                     title="Haz click para ver el código del proyecto"
-                    target= '_blank'
+                    target='_blank'
                   >
                     GitHub link
                   </a>
