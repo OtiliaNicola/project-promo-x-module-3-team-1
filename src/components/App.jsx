@@ -23,12 +23,32 @@ function App() {
     const value = ev.target.value;
 
     //spread operator:
-    //setUser({...variableQueContieneElObjeto, propiedarACambiar: valor})
-    if (id === "name") {
-      setInputData({ ...inputData, name: value });
-    } else if (id === "slogan") {
-      setInputData({ ...inputData, slogan: value });
-    }
+        //setLoQueSea({...variableQueContieneElObjeto, propiedarACambiar: valor})
+
+     setInputData({...inputData, [id]: value})
+
+
+    // if (id === "name") {
+    //   setInputData({ ...inputData, name: value });
+    // } else if (id === "slogan") {
+    //   setInputData({ ...inputData, slogan: value });
+    // } else if (id === "technologies") {
+    //   setInputData({ ...inputData, technologies: value });
+    // } else if (id === "repo") {
+    //   setInputData({ ...inputData, repo: value });
+    // } else if (id === "demo") {
+    //   setInputData({ ...inputData, demo: value });
+    // } else if (id === "desc") {
+    //   setInputData({ ...inputData, desc: value });
+    // } else if (id === "autor") {
+    //   setInputData({ ...inputData, autor: value });
+    // } else if (id === "job") {
+    //   setInputData({ ...inputData, job: value });
+    // } else if (id === "image") {
+    //   setInputData({ ...inputData, image: value });
+    // } else if (id === "photo") {
+    //   setInputData({ ...inputData, photo: value });
+    // }
   };
 
   return (
@@ -72,36 +92,39 @@ function App() {
 
               <div className="card__author">
                 <div className="card__authorPhoto"></div>
-                <p className="card__job">Full stack Developer</p>
-                <h3 className="card__name">Emmelie Bjôrklund</h3>
+                <p className="card__job"> {inputData.job || "Full stack Developer"}</p>
+                <h3 className="card__name">{inputData.autor || "Emmelie Björklund"}</h3>
               </div>
 
               <div className="card__project">
                 <h3 className="card__name">
                   {inputData.name || "Elegant Workspace"}
                 </h3>
-                <p className="card__slogan">{inputData.slogan || "Diseños Exclusivos"}</p>
+                <p className="card__slogan">
+                  {inputData.slogan || "Diseños Exclusivos"}
+                </p>
                 <h3 className="card__descriptionTitle">Product description</h3>
                 <p className="card__description">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Nulla, quos? Itaque, molestias eveniet laudantium adipisci
-                  vitae ratione
+                {inputData.desc || "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, quos? Itaque, molestias eveniet laudantium adipiscivitae ratione"}
+                  
                 </p>
 
                 <div className="card__technicalInfo">
-                  <p className="card__technologies">React JS - HTML - CSS</p>
+                  <p className="card__technologies">{inputData.technologies || "React JS - HTML - CSS"}</p>
 
                   <a
                     className="icon icon__www"
-                    href="#"
+                    href={inputData.demo} //hacer validación
                     title="Haz click para ver el proyecto online"
+                    target= '_blank'
                   >
                     Web link
                   </a>
                   <a
                     className="icon icon__github"
-                    href="#"
+                    href={`https://github.com/${inputData.repo}`} //hacer validación
                     title="Haz click para ver el código del proyecto"
+                    target= '_blank'
                   >
                     GitHub link
                   </a>
