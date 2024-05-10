@@ -1,10 +1,10 @@
 function Button(props) {
   return (
     <div>
-      <label htmlFor="image" className="button">
+      <label htmlFor={props.btnOther} className="button">
         {props.text}
       </label>
-      <input className="addForm__hidden" type="file" name="image" id="image" />
+      <input className="addForm__hidden" type="file" name={props.btnOther} id={props.btnOther}  />
     </div>
   );
 }
