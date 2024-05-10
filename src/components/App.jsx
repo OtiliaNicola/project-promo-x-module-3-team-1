@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "../styles/App.scss";
 import companyLogo from "../images/laptop-code-solid.svg";
 import logoSponsor from "../images/adalab.png";
@@ -248,3 +249,26 @@ function App() {
 }
 
 export default App;
+=======
+import "../styles/App.scss";
+import logoSponsor from "../images/adalab.png";
+import Header from "./Header";
+import Main from "./Main";
+
+function App() {
+  return (
+    <>
+      <div className="container">
+        <Header />
+        <Main />
+
+        <footer className="footer">
+          <img className="logoSponsor" src={logoSponsor} alt="Logo Adalab" />
+        </footer>
+      </div>
+    </>
+  );
+}
+
+export default App;
+>>>>>>> c0e33e6cf1b44a45c10f3d767a475d47d27a345d
