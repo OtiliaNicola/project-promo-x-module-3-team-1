@@ -1,7 +1,7 @@
 import "../styles/App.scss";
-import logoSponsor from "../images/adalab.png";
 import Header from "./Header";
 import Main from "./Main";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -9,10 +9,7 @@ function App() {
       <div className="container">
         <Header />
         <Main />
-
-        <footer className="footer">
-          <img className="logoSponsor" src={logoSponsor} alt="Logo Adalab" />
-        </footer>
+        <Footer />
       </div>
     </>
   );

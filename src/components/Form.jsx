@@ -1,6 +1,13 @@
 import Button from "./Button";
 
-function Form() {
+function Form({ changeInputData, updateAvatar }) {
+  const handleChange = (ev) => {
+    const id = ev.target.id;
+    const value = ev.target.value;
+    changeInputData(id, value);
+
+    //falla porque no encuentra el setInputData en el componente
+  };
   return (
     <form className="addForm">
       <h2 className="title">Información</h2>
@@ -13,6 +20,7 @@ function Form() {
           name="name"
           id="name"
           placeholder="Nombre del proyecto"
+          onChange={handleChange}
         />
 
         <input
@@ -21,6 +29,7 @@ function Form() {
           name="slogan"
           id="slogan"
           placeholder="Slogan"
+          onChange={handleChange}
         />
         <div className="addForm__2col">
           <input
@@ -29,6 +38,7 @@ function Form() {
             name="repo"
             id="repo"
             placeholder="Repositorio"
+            onChange={handleChange}
           />
           <input
             className="addForm__input"
@@ -36,6 +46,7 @@ function Form() {
             name="demo"
             id="demo"
             placeholder="Demo"
+            onChange={handleChange}
           />
         </div>
         <input
@@ -44,6 +55,7 @@ function Form() {
           name="technologies"
           id="technologies"
           placeholder="Tecnologías"
+          onChange={handleChange}
         />
         <textarea
           className="addForm__input"
@@ -52,6 +64,7 @@ function Form() {
           id="desc"
           placeholder="Descripción"
           rows="5"
+          onChange={handleChange}
         ></textarea>
       </fieldset>
 
@@ -63,6 +76,7 @@ function Form() {
           name="autor"
           id="autor"
           placeholder="Nombre"
+          onChange={handleChange}
         />
         <input
           className="addForm__input"
@@ -70,20 +84,20 @@ function Form() {
           name="job"
           id="job"
           placeholder="Trabajo"
+          onChange={handleChange}
         />
       </fieldset>
 
       <fieldset className="addForm__group--upload">
-        <Button text="Subir foto del proyecto" />
-
-        <label htmlFor="photo" className="button">
-          Subir foto de la autora
-        </label>
-        <input
-          className="addForm__hidden"
-          type="file"
-          name="photo"
-          id="photo"
+        <Button
+          text="Subir foto del proyecto"
+          btnOther="image"
+          updateAvatar={updateAvatar}
+        />
+        <Button
+          text="Subir foto de la autora"
+          btnOther="photo"
+          updateAvatar={updateAvatar}
         />
         <button className="button--large">Guardar proyecto</button>
       </fieldset>

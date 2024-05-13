@@ -1,7 +1,30 @@
 import CardPreview from "./CardPreview";
 import Form from "./Form";
+import { useState } from "react";
 
 function Main() {
+  const [inputData, setInputData] = useState({
+    //creamos variable de estado y sus propiedades
+    name: "",
+    slogan: "",
+    technologies: "",
+    repo: "",
+    demo: "",
+    desc: "",
+    autor: "",
+    job: "",
+    image: "",
+    photo: "",
+  });
+  //creamos una función para recoger y actualizar los datos que introduce la usuaria en los inputs//
+  const changeInputData = (idInput, valueInput) => {
+    //con esta función estoy actualizando el objeto de cada input //
+    setInputData({ ...inputData, [idInput]: valueInput });
+  };
+
+  const updateAvatar = (url, idInput) => {
+    setInputData({ ...inputData, [idInput]: url });
+  };
   return (
     <main className="main">
       <section className="hero">
@@ -13,8 +36,8 @@ function Main() {
           Ver proyectos
         </a>
       </section>
-      <CardPreview />
-      <Form />
+      <CardPreview data={inputData} />
+      <Form changeInputData={changeInputData} updateAvatar={updateAvatar} />
     </main>
   );
 }

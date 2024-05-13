@@ -1,15 +1,22 @@
 import React from "react";
+import PropTypes from "prop-types";
+import defaultAvatar from "../images/defaultAvatar.png";
+import "../styles/GetAvatar.css";
 
-function Button(props) {
+function GetAvatar({
+  avatar = defaultAvatar,
+  updateAvatar,
+  text = "Get avatar!",
+}) {
+  // creamos una propiedad de la clase que es la que vamos a usar en varios métodos para cargar la imagen
+  // esto es un manejador de ficheros
   const fr = new FileReader();
 
   // creamos un React.createRef porque React no gestiona los <input type="file" /> por ello tenemos que gestionarlo por nuestra cuenta
   const myFileField = React.createRef();
   //  myFileField = document.querySelecto('input')
-  let id = "";
+
   const uploadImage = (ev) => {
-    console.log(ev.target.id);
-    id = ev.target.id;
     // cuando pulsamos en la label o en <input type="file" />:
     // 1º se abre la ventana de nuestro ordenador para elegir un fichero
     // 2º cuando la usuaria elije un fichero se ejecuta este método manejador de eventos
@@ -41,8 +48,7 @@ function Button(props) {
     // si la usuaria no ha elegido ningún fichero y ha puslado en cerrar la ventana de nuestro ordenador, no hago nada
   };
 
-  const getImage = (ev) => {
-    console.log(myFileField);
+  const getImage = () => {
     // cuando el navegador termina de manejar el fichero se ejecuta este método porque lo hemos indicado en  fr.addEventListener('load',  getImage);
 
     //  fr guarda información útil sobre el fichero cargado
@@ -53,24 +59,33 @@ function Button(props) {
 
     // aquí hago lifting con los datos del fichero
     // lo que haga el componente madre con esta información es otro problema diferente
-    props.updateAvatar(image, id);
+    updateAvatar(image);
   };
 
   return (
-    <div>
-      <label htmlFor={props.btnOther} className="button">
-        {props.text}
+    <div className="get-avatar">
+      <label className="get-avatar__label">
+        {text}
+        <input
+          type="file"
+          ref={myFileField}
+          style={{ display: "none" }}
+          onChange={uploadImage}
+        />
       </label>
-      <input
-        className="addForm__hidden"
-        ref={myFileField}
-        type="file"
-        name={props.btnOther}
-        id={props.btnOther}
-        onChange={uploadImage}
-      />
+
+      <div
+        className="get-avatar__preview"
+        style={{ backgroundImage: `url(${avatar})` }}
+      ></div>
     </div>
   );
 }
 
-export default Button;
+GetAvatar.propTypes = {
+  avatar: PropTypes.string,
+  updateAvatar: PropTypes.func.isRequired,
+  text: PropTypes.string,
+};
+
+export default GetAvatar;
