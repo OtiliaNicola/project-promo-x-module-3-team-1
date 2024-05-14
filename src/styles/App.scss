@@ -127,6 +127,9 @@ fieldset {
 	background-image: url("../images/ebook-example.jpg");
 	background-position: top center;
 	background-size: cover;
+    &--img{
+        width: 100%;
+    }
 }
 
 .preview .card {
@@ -214,6 +217,9 @@ fieldset {
 	background-position: center;
 	background-size: cover;
 	margin-bottom: 0.8rem;
+    &--img{
+        width: 100%;
+    }
 }
 
 .card .card__job {
