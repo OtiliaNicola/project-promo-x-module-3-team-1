@@ -14,7 +14,7 @@ function Main() {
     autor: "",
     job: "",
     image: "",
-    photo: "",
+    photo: ""
   });
   //creamos una función para recoger y actualizar los datos que introduce la usuaria en los inputs//
   const changeInputData = (idInput, valueInput) => {
@@ -37,7 +37,7 @@ function Main() {
         </a>
       </section>
       <CardPreview data={inputData} />
-      <Form changeInputData={changeInputData} updateAvatar={updateAvatar} />
+      <Form changeInputData={changeInputData} updateAvatar={updateAvatar} inputData={inputData} setInputData={setInputData}/>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 import Button from "./Button";
 
-function Form({ changeInputData, updateAvatar }) {
+function Form({ changeInputData, updateAvatar, inputData, setInputData }) {
   const handleChange = (ev) => {
     const id = ev.target.id;
     const value = ev.target.value;
@@ -8,8 +8,22 @@ function Form({ changeInputData, updateAvatar }) {
 
     //falla porque no encuentra el setInputData en el componente
   };
+  const handleClick = (ev)=>{
+    setInputData({
+    name: "",
+    slogan: "",
+    technologies: "",
+    repo: "",
+    demo: "",
+    desc: "",
+    autor: "",
+    job: "",
+    image: "",
+    photo: ""
+  })}
+
   return (
-    <form className="addForm">
+    <form className="addForm" onSubmit={(ev)=>{ev.preventDefault()}}>
       <h2 className="title">Información</h2>
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
@@ -21,6 +35,7 @@ function Form({ changeInputData, updateAvatar }) {
           id="name"
           placeholder="Nombre del proyecto"
           onChange={handleChange}
+          value={inputData.name}
         />
 
         <input
@@ -30,6 +45,7 @@ function Form({ changeInputData, updateAvatar }) {
           id="slogan"
           placeholder="Slogan"
           onChange={handleChange}
+          value={inputData.slogan}
         />
         <div className="addForm__2col">
           <input
@@ -39,6 +55,7 @@ function Form({ changeInputData, updateAvatar }) {
             id="repo"
             placeholder="Repositorio"
             onChange={handleChange}
+            value={inputData.repo}
           />
           <input
             className="addForm__input"
@@ -47,6 +64,7 @@ function Form({ changeInputData, updateAvatar }) {
             id="demo"
             placeholder="Demo"
             onChange={handleChange}
+            value={inputData.demo}
           />
         </div>
         <input
@@ -56,6 +74,7 @@ function Form({ changeInputData, updateAvatar }) {
           id="technologies"
           placeholder="Tecnologías"
           onChange={handleChange}
+          value={inputData.technologies}
         />
         <textarea
           className="addForm__input"
@@ -65,6 +84,7 @@ function Form({ changeInputData, updateAvatar }) {
           placeholder="Descripción"
           rows="5"
           onChange={handleChange}
+          value={inputData.desc}
         ></textarea>
       </fieldset>
 
@@ -77,6 +97,7 @@ function Form({ changeInputData, updateAvatar }) {
           id="autor"
           placeholder="Nombre"
           onChange={handleChange}
+          value={inputData.autor}
         />
         <input
           className="addForm__input"
@@ -85,6 +106,7 @@ function Form({ changeInputData, updateAvatar }) {
           id="job"
           placeholder="Trabajo"
           onChange={handleChange}
+          value={inputData.job}
         />
       </fieldset>
 
@@ -99,7 +121,7 @@ function Form({ changeInputData, updateAvatar }) {
           btnOther="photo"
           updateAvatar={updateAvatar}
         />
-        <button className="button--large">Guardar proyecto</button>
+        <button className="button--large on" onClick={handleClick}>Guardar proyecto</button>
       </fieldset>
     </form>
   );
