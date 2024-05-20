@@ -16,6 +16,8 @@ function Main() {
     image: "",
     photo: "",
   });
+
+  const [urlCard, setUrlCard] = useState("");
   //creamos una función para recoger y actualizar los datos que introduce la usuaria en los inputs//
   const changeInputData = (idInput, valueInput) => {
     //con esta función estoy actualizando el objeto de cada input //
@@ -36,6 +38,7 @@ function Main() {
       .then((response) => response.json())
       .then((dataResponse) => {
         console.log(dataResponse);
+        setUrlCard(dataResponse.cardURL);
       });
   };
   return (
@@ -57,6 +60,7 @@ function Main() {
         setInputData={setInputData}
         createdCard={createCard}
       />
+      <a href={urlCard}>Mira tu tarjeta</a>
     </main>
   );
 }
