@@ -1,6 +1,12 @@
 import Button from "./Button";
 
-function Form({ changeInputData, updateAvatar, inputData, setInputData }) {
+function Form({
+  changeInputData,
+  updateAvatar,
+  inputData,
+  setInputData,
+  createdCard,
+}) {
   const handleChange = (ev) => {
     const id = ev.target.id;
     const value = ev.target.value;
@@ -8,22 +14,29 @@ function Form({ changeInputData, updateAvatar, inputData, setInputData }) {
 
     //falla porque no encuentra el setInputData en el componente
   };
-  const handleClick = (ev)=>{
+  const handleClick = (ev) => {
+    createdCard();
     setInputData({
-    name: "",
-    slogan: "",
-    technologies: "",
-    repo: "",
-    demo: "",
-    desc: "",
-    autor: "",
-    job: "",
-    image: "",
-    photo: ""
-  })}
+      name: "",
+      slogan: "",
+      technologies: "",
+      repo: "",
+      demo: "",
+      desc: "",
+      autor: "",
+      job: "",
+      image: "",
+      photo: "",
+    });
+  };
 
   return (
-    <form className="addForm" onSubmit={(ev)=>{ev.preventDefault()}}>
+    <form
+      className="addForm"
+      onSubmit={(ev) => {
+        ev.preventDefault();
+      }}
+    >
       <h2 className="title">Información</h2>
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
@@ -121,7 +134,9 @@ function Form({ changeInputData, updateAvatar, inputData, setInputData }) {
           btnOther="photo"
           updateAvatar={updateAvatar}
         />
-        <button className="button--large on" onClick={handleClick}>Guardar proyecto</button>
+        <button className="button--large on" onClick={handleClick}>
+          Guardar proyecto
+        </button>
       </fieldset>
     </form>
   );

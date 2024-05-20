@@ -14,7 +14,7 @@ function Main() {
     autor: "",
     job: "",
     image: "",
-    photo: ""
+    photo: "",
   });
   //creamos una función para recoger y actualizar los datos que introduce la usuaria en los inputs//
   const changeInputData = (idInput, valueInput) => {
@@ -24,6 +24,19 @@ function Main() {
 
   const updateAvatar = (url, idInput) => {
     setInputData({ ...inputData, [idInput]: url });
+  };
+  const createCard = () => {
+    fetch("https://dev.adalab.es/api/projectCard", {
+      method: "POST",
+      body: JSON.stringify(inputData),
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((dataResponse) => {
+        console.log(dataResponse);
+      });
   };
   return (
     <main className="main">
@@ -37,7 +50,13 @@ function Main() {
         </a>
       </section>
       <CardPreview data={inputData} />
-      <Form changeInputData={changeInputData} updateAvatar={updateAvatar} inputData={inputData} setInputData={setInputData}/>
+      <Form
+        changeInputData={changeInputData}
+        updateAvatar={updateAvatar}
+        inputData={inputData}
+        setInputData={setInputData}
+        createdCard={createCard}
+      />
     </main>
   );
 }
