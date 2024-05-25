@@ -367,15 +367,19 @@ fieldset {
 }
 
 .url-message{
-	color: white;
+	color: var(--color-dark-lilac);
+	font-weight: bolder;
 	text-decoration: none;
-	padding-bottom: 10px;
-	font-size: 12px;
+	padding: 10px 18px;
+	font-size: 15px;
+    margin: 8px;
+    text-align: center;
+    border-radius: 40px;
+    background-image: linear-gradient(to right, var(--color-warm-grey) -2%, var(--color-white) 98%);
 	&:hover{
-		color: red;
-	}
-
-	
+		color: rgb(62, 5, 118);
+		font-weight: bold;
+}
 }
 
 
