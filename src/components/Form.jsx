@@ -1,12 +1,13 @@
 import Button from "./Button";
-
+import PropTypes from "prop-types";
 function Form({
   changeInputData,
   updateAvatar,
   inputData,
   setInputData,
   createdCard,
-  urlCard
+  urlCard,
+  hidden
 }) {
   const handleChange = (ev) => {
     const id = ev.target.id;
@@ -16,7 +17,7 @@ function Form({
 
     //falla porque no encuentra el setInputData en el componente
   };
-  const handleClick = (ev) => {
+  const handleClick = () => {
     createdCard();
     setInputData({
       name: "",
@@ -69,7 +70,7 @@ function Form({
             type="url"
             name="repo"
             id="repo"
-            placeholder="Repositorio"
+            placeholder="nombre-de-tu-repositorio"
             onChange={handleChange}
             value={inputData.repo}
           />
@@ -141,8 +142,18 @@ function Form({
           Guardar proyecto
         </button>
       </fieldset>
-      <a href={urlCard} className="url-message">Mira tu tarjeta</a>
+      <a href={urlCard} className={`url-message ${hidden}`}  >Mira tu tarjeta</a>
     </form>
   );
+}
+
+Form.propTypes = {
+    inputData: PropTypes.object,
+    changeInputData: PropTypes.func,
+    updateAvatar: PropTypes.func,
+    setInputData: PropTypes.func,
+    createdCard: PropTypes.func,
+    urlCard: PropTypes.string,
+    hidden: PropTypes.string
 }
 export default Form;

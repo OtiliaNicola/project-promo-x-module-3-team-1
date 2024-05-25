@@ -18,6 +18,7 @@ function Main() {
   });
 
   const [urlCard, setUrlCard] = useState("");
+  const [hidden, setHidden] = useState("hidden");
   //creamos una función para recoger y actualizar los datos que introduce la usuaria en los inputs//
   const changeInputData = (idInput, valueInput) => {
     //con esta función estoy actualizando el objeto de cada input //
@@ -39,6 +40,7 @@ function Main() {
       .then((dataResponse) => {
         console.log(dataResponse);
         setUrlCard(dataResponse.cardURL);
+        setHidden("");
       });
   };
   return (
@@ -52,7 +54,7 @@ function Main() {
           Ver proyectos
         </a>
       </section>
-      <CardPreview data={inputData} />
+      <CardPreview inputData={inputData} />
       <Form
         changeInputData={changeInputData}
         updateAvatar={updateAvatar}
@@ -60,6 +62,7 @@ function Main() {
         setInputData={setInputData}
         createdCard={createCard}
         urlCard={urlCard}
+        hidden={hidden}
       />
     </main>
   );
