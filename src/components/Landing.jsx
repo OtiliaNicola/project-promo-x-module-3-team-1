@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
+import "../styles/App.scss";
 
 function Landing () {
   return (
     <>
-      <h1>Mis proyectos molones</h1>
+    <main className="main--landing">
+      <h1 className="title">Mis proyectos molones</h1>
       <Link to="/main">
-        <button>Nuevo proyecto</button>
+        <button className="button--link">Nuevo proyecto</button>
       </Link>
-      <button>Catálogo de Proyectos</button>
+      <button className="button--link">Catálogo de Proyectos</button>
+      </main>
     </>
   )
 }

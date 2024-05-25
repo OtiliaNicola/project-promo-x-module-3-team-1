@@ -87,6 +87,10 @@ fieldset {
 	color: var(--color-white);
 }
 
+.main--landing{
+	height: 76vh;
+}
+
 @media screen and (min-width: 768px) {
 	.main {
 		max-width: 980px;
