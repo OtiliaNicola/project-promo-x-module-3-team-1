@@ -6,11 +6,13 @@ function Form({
   inputData,
   setInputData,
   createdCard,
+  urlCard
 }) {
   const handleChange = (ev) => {
     const id = ev.target.id;
     const value = ev.target.value;
     changeInputData(id, value);
+    localStorage.setItem("project", JSON.stringify(inputData))
 
     //falla porque no encuentra el setInputData en el componente
   };
@@ -28,6 +30,7 @@ function Form({
       image: "",
       photo: "",
     });
+    localStorage.removeItem('project');
   };
 
   return (
@@ -138,6 +141,7 @@ function Form({
           Guardar proyecto
         </button>
       </fieldset>
+      <a href={urlCard} className="url-message">Mira tu tarjeta</a>
     </form>
   );
 }

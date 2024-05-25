@@ -277,6 +277,9 @@ fieldset {
 		var(--color-dusk),
 		#211e2e 92%
 	);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .addForm .title {
@@ -362,6 +365,19 @@ fieldset {
 	width: calc((100% - 0.2rem) / 2);
 	margin: 0;
 }
+
+.url-message{
+	color: white;
+	text-decoration: none;
+	padding-bottom: 10px;
+	font-size: 12px;
+	&:hover{
+		color: red;
+	}
+
+	
+}
+
 
 .footer {
 	display: flex;

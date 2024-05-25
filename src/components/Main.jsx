@@ -59,8 +59,8 @@ function Main() {
         inputData={inputData}
         setInputData={setInputData}
         createdCard={createCard}
+        urlCard={urlCard}
       />
-      <a href={urlCard}>Mira tu tarjeta</a>
     </main>
   );
 }
