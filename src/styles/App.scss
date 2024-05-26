@@ -20,6 +20,7 @@ fieldset {
 	--color-dusk: #403a5f;
 	--color-greyish-brown-two: #575757;
 	--color-dark: #302c42;
+	--color-error: #568c9a;
 	--color-warm-grey: #909090;
 	--color-white: #ffffff;
 	--color-dark-lilac: #8176af;
@@ -56,6 +57,12 @@ fieldset {
 	:root {
 		font-size: 14px;
 	}
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 }
 
 .container {
@@ -105,7 +112,7 @@ fieldset {
 }
 
 .hero {
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -125,6 +132,8 @@ fieldset {
 	margin-inline: 4rem;
 	margin-bottom: 1.8rem;
 }
+
+
 
 .preview .projectImage {
 	width: 100%;
@@ -518,4 +527,21 @@ fieldset {
 //HIDDEN
 .hidden{
     display: none;
+}
+
+//ERROR MESSAGE
+.error {
+	width: 100%;
+	grid-column: span 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 15px;
+	gap: 5px;
+	padding-bottom: 10px;
+	border-width: 1px;
+	border-radius: 20px;
+	background-color: var(--color-error);
+	opacity: 0.7;
+	
 }
