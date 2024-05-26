@@ -17,20 +17,19 @@ function Form({
 
     //falla porque no encuentra el setInputData en el componente
   };
-  const handleClick = (ev) => {
-    ev.preventDefault();
-    if (
-      inputData.name !=="" &&
-      inputData.slogan !== "" &&
-      inputData.technologies !== "" &&
-      inputData.repo !== "" &&
-      inputData.demo !== "" &&
-      inputData.desc !== "" &&
-      inputData.autor !== "" &&
-      inputData.job !== "" &&
-      inputData.image !== "" &&
-      inputData.photo !== ""
-    ) {
+  const handleClick = () => {
+    // if (
+    //   inputData.name !=="" &&
+    //   inputData.slogan !== "" &&
+    //   inputData.technologies !== "" &&
+    //   inputData.repo !== "" &&
+    //   inputData.demo !== "" &&
+    //   inputData.desc !== "" &&
+    //   inputData.autor !== "" &&
+    //   inputData.job !== "" &&
+    //   inputData.image !== "" &&
+    //   inputData.photo !== ""
+    // ) {
       createdCard();
       setInputData({
         name: "",
@@ -45,7 +44,7 @@ function Form({
         photo: "",
       });
       localStorage.removeItem("project");
-    }
+   // }
   };
 
   return (
