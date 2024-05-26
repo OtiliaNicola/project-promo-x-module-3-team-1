@@ -133,6 +133,10 @@ fieldset {
 	background-size: cover;
     &--img{
         width: 100%;
+		aspect-ratio: 1 / 1;
+		outline: solid 1px pink;
+		background-position: top center;
+		background-size: cover;
     }
 }
 
@@ -222,7 +226,12 @@ fieldset {
 	background-size: cover;
 	margin-bottom: 0.8rem;
     &--img{
-        width: 100%;
+        width: 75px;
+		height: 75px;
+		border-radius: 50%;
+		background-position: center;
+		background-size: cover;
+		margin-bottom: 0.8rem;
     }
 }
 
