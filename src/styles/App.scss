@@ -4,6 +4,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	text-decoration: none;
 }
 fieldset {
 	border: 0;
@@ -381,7 +382,7 @@ fieldset {
 	margin: 0;
 }
 
-.url-message{
+.url--message{
 	color: var(--color-dark-lilac);
 	font-weight: bolder;
 	text-decoration: none;
@@ -397,6 +398,7 @@ fieldset {
 		text-decoration: none;
 }
 }
+
 
 
 .footer {
