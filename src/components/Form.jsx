@@ -115,7 +115,6 @@ function Form({
           placeholder="Nombre"
           onChange={handleChange}
           value={inputData.autor}
-          required
         />
         <input
           className="addForm__input"
@@ -125,7 +124,6 @@ function Form({
           placeholder="Trabajo"
           onChange={handleChange}
           value={inputData.job}
-          required
         />
       </fieldset>
 
