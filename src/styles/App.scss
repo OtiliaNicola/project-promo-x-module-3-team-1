@@ -89,6 +89,7 @@ fieldset {
 
 .main--landing{
 	height: 76vh;
+	text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -98,6 +99,7 @@ fieldset {
 		display: grid;
 		grid-template-columns: 6fr 5fr;
 		gap: 2rem;
+		text-decoration: none;
 	}
 }
 
@@ -392,6 +394,7 @@ fieldset {
 	&:hover{
 		color: rgb(62, 5, 118);
 		font-weight: bold;
+		text-decoration: none;
 }
 }
 
@@ -416,7 +419,6 @@ fieldset {
 .button--link {
 	display: block;
 	width: fit-content;
-
 	margin-inline: auto;
 	margin-block: 8px;
 	padding: 5px 18px;
@@ -424,7 +426,6 @@ fieldset {
 	font: var(--font-button);
 	text-transform: uppercase;
 	text-decoration: none;
-
 	-webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);
 	border-style: solid;
@@ -439,6 +440,7 @@ fieldset {
   background-clip: content-box, border-box;
   */
 }
+
 
 .button {
 	display: block;
@@ -489,6 +491,7 @@ fieldset {
 
 .button--large:hover {
 	border-color: var(--color-white);
+	text-decoration: none;
 }
 
 /* ICONS */

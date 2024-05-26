@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 fieldset {
   border: 0;
@@ -100,6 +101,7 @@ fieldset {
     display: grid;
     grid-template-columns: 6fr 5fr;
     gap: 2rem;
+    text-decoration: none;
   }
 }
 
