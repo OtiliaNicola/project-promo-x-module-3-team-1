@@ -6,10 +6,10 @@ function Landing () {
     <>
     <main className="main--landing">
       <h1 className="title">Mis proyectos molones</h1>
-      <Link to="/main">
+      <Link to="/main" className="button--link">
         <button className="button--link">Nuevo proyecto</button>
       </Link>
-      <button className="button--link">Catálogo de Proyectos</button>
+      <div className="button--link"><button className="button--link">Catálogo de Proyectos</button></div>
       </main>
     </>
   )

@@ -1,45 +1,59 @@
 import Button from "./Button";
 import PropTypes from "prop-types";
-function Form ({
+function Form({
   changeInputData,
   updateAvatar,
   inputData,
   setInputData,
   createdCard,
   urlCard,
-  hidden
+  hidden,
 }) {
   const handleChange = (ev) => {
     const id = ev.target.id;
     const value = ev.target.value;
     changeInputData(id, value);
-    localStorage.setItem("project", JSON.stringify(inputData))
+    localStorage.setItem("project", JSON.stringify(inputData));
 
     //falla porque no encuentra el setInputData en el componente
   };
-  const handleClick = () => {
-    createdCard();
-    setInputData({
-      name: "",
-      slogan: "",
-      technologies: "",
-      repo: "",
-      demo: "",
-      desc: "",
-      autor: "",
-      job: "",
-      image: "",
-      photo: "",
-    });
-    localStorage.removeItem('project');
+  const handleClick = (ev) => {
+    ev.preventDefault();
+    if (
+      inputData.name !=="" &&
+      inputData.slogan !== "" &&
+      inputData.technologies !== "" &&
+      inputData.repo !== "" &&
+      inputData.demo !== "" &&
+      inputData.desc !== "" &&
+      inputData.autor !== "" &&
+      inputData.job !== "" &&
+      inputData.image !== "" &&
+      inputData.photo !== ""
+    ) {
+      createdCard();
+      setInputData({
+        name: "",
+        slogan: "",
+        technologies: "",
+        repo: "",
+        demo: "",
+        desc: "",
+        autor: "",
+        job: "",
+        image: "",
+        photo: "",
+      });
+      localStorage.removeItem("project");
+    }
   };
 
   return (
     <form
       className="addForm"
-      onSubmit={ (ev) => {
+      onSubmit={(ev) => {
         ev.preventDefault();
-      } }
+      }}
     >
       <h2 className="title">Información</h2>
       <fieldset className="addForm__group">
@@ -51,8 +65,9 @@ function Form ({
           name="name"
           id="name"
           placeholder="Nombre del proyecto"
-          onChange={ handleChange }
-          value={ inputData.name }
+          onChange={handleChange}
+          value={inputData.name}
+          
         />
 
         <input
@@ -61,8 +76,9 @@ function Form ({
           name="slogan"
           id="slogan"
           placeholder="Slogan"
-          onChange={ handleChange }
-          value={ inputData.slogan }
+          onChange={handleChange}
+          value={inputData.slogan}
+          
         />
         <div className="addForm__2col">
           <input
@@ -71,8 +87,9 @@ function Form ({
             name="repo"
             id="repo"
             placeholder="nombre-de-tu-repositorio"
-            onChange={ handleChange }
-            value={ inputData.repo }
+            onChange={handleChange}
+            value={inputData.repo}
+            
           />
           <input
             className="addForm__input"
@@ -80,8 +97,9 @@ function Form ({
             name="demo"
             id="demo"
             placeholder="Demo"
-            onChange={ handleChange }
-            value={ inputData.demo }
+            onChange={handleChange}
+            value={inputData.demo}
+            
           />
         </div>
         <input
@@ -90,8 +108,9 @@ function Form ({
           name="technologies"
           id="technologies"
           placeholder="Tecnologías"
-          onChange={ handleChange }
-          value={ inputData.technologies }
+          onChange={handleChange}
+          value={inputData.technologies}
+          
         />
         <textarea
           className="addForm__input"
@@ -100,8 +119,9 @@ function Form ({
           id="desc"
           placeholder="Descripción"
           rows="5"
-          onChange={ handleChange }
-          value={ inputData.desc }
+          onChange={handleChange}
+          value={inputData.desc}
+          
         ></textarea>
       </fieldset>
 
@@ -113,8 +133,9 @@ function Form ({
           name="autor"
           id="autor"
           placeholder="Nombre"
-          onChange={ handleChange }
-          value={ inputData.autor }
+          onChange={handleChange}
+          value={inputData.autor}
+          
         />
         <input
           className="addForm__input"
@@ -122,8 +143,9 @@ function Form ({
           name="job"
           id="job"
           placeholder="Trabajo"
-          onChange={ handleChange }
-          value={ inputData.job }
+          onChange={handleChange}
+          value={inputData.job}
+          
         />
       </fieldset>
 
@@ -131,18 +153,20 @@ function Form ({
         <Button
           text="Subir foto del proyecto"
           btnOther="image"
-          updateAvatar={ updateAvatar }
+          updateAvatar={updateAvatar}
         />
         <Button
           text="Subir foto de la autora"
           btnOther="photo"
-          updateAvatar={ updateAvatar }
+          updateAvatar={updateAvatar}
         />
-        <button className="button--large on" onClick={ handleClick }>
+        <button className="button--large on" onClick={handleClick}>
           Guardar proyecto
         </button>
       </fieldset>
-      <a href={ urlCard } className={ `url--message ${hidden}` } target="_blank" >Mira tu tarjeta</a>
+      <a href={urlCard} className={`url--message ${hidden}`} target="_blank">
+        Mira tu tarjeta
+      </a>
     </form>
   );
 }
@@ -154,6 +178,6 @@ Form.propTypes = {
   setInputData: PropTypes.func,
   createdCard: PropTypes.func,
   urlCard: PropTypes.string,
-  hidden: PropTypes.string
-}
+  hidden: PropTypes.string,
+};
 export default Form;
