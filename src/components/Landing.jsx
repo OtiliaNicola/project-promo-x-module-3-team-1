@@ -9,7 +9,9 @@ function Landing () {
       <Link to="/main" className="button--link">
         <button className="button--link">Nuevo proyecto</button>
       </Link>
-      <div className="button--link"><button className="button--link">Catálogo de Proyectos</button></div>
+      <Link to="/catalogue" className="button--link">
+       <button className="button--link">Catálogo de Proyectos</button>
+      </Link>
       </main>
     </>
   )
